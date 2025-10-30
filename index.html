@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3-Tier Demo</title>
+</head>
+<body>
+<h1>Users List</h1>
+<ul id="users"></ul>
+
+<script>
+fetch('http://65.2.149.223:3000/users')
+.then(res => res.json())
+.then(data => {
+    const ul = document.getElementById('users');
+    data.forEach(user => {
+        let li = document.createElement('li');
+        li.textContent = user.name;
+        ul.appendChild(li);
+    });
+});
+</script>
+</body>
+</html>
